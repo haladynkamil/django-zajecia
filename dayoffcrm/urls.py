@@ -15,8 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from dayoff.views import *
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('lista-klientow/', ClientList.as_view())
 ]

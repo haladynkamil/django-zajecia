@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="2ba2db6f-e733-44fd-97fa-8bf47900c049" name="cl" url="http://ip.codelab.pl">
+        <fileTransfer host="ip.codelab.pl" port="22090" rootFolder="/home/kamil/dev/travelmed" accessType="SFTP">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+          <option name="port" value="22090" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

@@ -2,9 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>{{ title }}</title>
 </head>
 <body>
-
+{% for client in clientlist %}
+    {{ client }}
+{% endfor   %}
 </body>
 </html>
