@@ -6,7 +6,7 @@ from django.apps import apps
 class ClientList(TemplateView):
     title = 'Lista klientów'
     template_name= 'clientlist/content.html'
-    url = 'lista-kliento55sw/'
+    url = 'lista-klientow/'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
