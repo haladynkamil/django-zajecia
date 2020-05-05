@@ -1,0 +1,3 @@
+[submodule "compose"]
+	path = compose
+	url = git@gitlab.codelab.pl:codelab/compose/compose.git

@@ -13,12 +13,16 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+import inspect
 from django.contrib import admin
 from django.urls import path
-from dayoff.views import *
-
+from dayoff import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('lista-klientow/', ClientList.as_view())
 ]
+
+for name, obj in inspect.getmembers(views):
+    if hasattr(obj, '__module__') and obj.__module__ == 'dayoff.views':
+        urlpatterns.append(path(obj.url, obj.as_view(), name=obj.__name__.lower()))
+

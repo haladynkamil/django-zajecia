@@ -1,0 +1,15 @@
+{%  extends 'dashboard/index.html' %}
+
+{%  load static %}
+
+{%  block content %}
+
+
+
+{% for client in clientlist %}
+    <p>{{ client }}</p>
+
+{% endfor   %}
+
+
+{%  endblock content %}

@@ -1,4 +1,4 @@
-{%  load static %}
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,7 +10,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>SB Admin 2 - Dashboard</title>
+  <title>DayOff! Manager</title>
 
   <!-- Custom fonts for this template-->
   <link href="{% static 'vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
@@ -28,12 +28,27 @@
 
     <!-- Sidebar -->
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+        
+      <!-- Divider -->
+      <hr class="sidebar-divider my-0">
 
+      <!-- Nav Item - Dashboard -->
+      <li class="nav-item active">
+        <a class="nav-link" href="index.html">
+          <span>Dashboard</span></a>
+      </li>
 
+      <!-- Divider -->
+      <hr class="sidebar-divider">
+
+      <!-- Heading -->
+      <div class="sidebar-heading">
+        Menu
+      </div>
 
       <!-- Sidebar Toggler (Sidebar) -->
       <div class="text-center d-none d-md-inline">
-        <button class="rounded-circle border-0" id="sidebarToggle"><i class="fas fa-arrows-alt-h"></i></button>
+        <button class="rounded-circle border-0" id="sidebarToggle"></button>
       </div>
 
     </ul>
@@ -53,19 +68,30 @@
             <i class="fa fa-bars"></i>
           </button>
 
-
-
-
+        </nav>
+        <!-- End of Topbar -->
 
         <!-- Begin Page Content -->
         <div class="container-fluid">
 
+          <!-- Page Heading -->
 
 
+          <!-- Content Row -->
+
+<div class="card shadow mb-4">
+                <div class="card-header py-3">
+                  <h6 class="m-0 font-weight-bold text-primary">{{ title }}</h6>
+                </div>
+                <div class="card-body">
+                    {% block content %}
+            {% endblock content %}
+                </div>
+              </div>
+          <!-- Content Row -->
 
 
-
-
+          <!-- Content Row -->
 
 
         </div>
@@ -78,7 +104,7 @@
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span>Copyright &copy; Kamil Haładyn 2020</span>
+            <span>Copyright &copy; The Gnom król wszechświata</span>
           </div>
         </div>
       </footer>
@@ -108,7 +134,7 @@
         <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="{% static 'login.html' %}">Logout</a>
+          <a class="btn btn-primary" href="login.html">Logout</a>
         </div>
       </div>
     </div>
