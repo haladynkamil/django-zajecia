@@ -9,23 +9,25 @@
     <table class="table table-bordered">
       <thead>
         <tr>
-          <th>Imię</th>
-          <th>Nazwisko</th>
-            <th>Adres</th>
+          <th>Klient</th>
+          <th>Produkt</th>
+            <th>Cena</th>
+            <th>Deadline</th>
             <th>Akcje</th>
         </tr>
       </thead>
-      {% for client in clientlist %}
+      {% for order in orderlist %}
       <tr>
         <td>
-         {{ client.first_name }}
+         {{ order.client }}
         </td>
         <td>
-           {{ client.last_name }}
+           {{ order.product }}
         </td>
-      <td>{{ client.get_full_address }}</td>
+      <td>{{ order.price }}</td>
+          <td>{{ order.finish_date }}</td>
       <td>
-          <a class="btn btn-secondary" href="{% url 'clientdelete' client.pk %}">Usuń</a>
+          <a class="btn btn-secondary" href="{% url 'orderdelete' order.pk %}">Usuń</a>
 
       </td>
       </tr>

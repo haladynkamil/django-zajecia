@@ -15,11 +15,12 @@ Including another URLconf
 """
 import inspect
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from dayoff import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', include('django.contrib.auth.urls')),
 ]
 
 for name, obj in inspect.getmembers(views):

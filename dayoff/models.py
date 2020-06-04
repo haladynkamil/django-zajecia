@@ -1,17 +1,25 @@
 from django.db import models
-
+from django.core.exceptions import ValidationError
 
 class Client(models.Model):
     first_name = models.CharField(max_length=255, verbose_name='Imię')
-    second_name = models.CharField(max_length=255, verbose_name='Nazwisko')
+    last_name = models.CharField(max_length=255, verbose_name='Nazwisko')
     postal_code = models.CharField(max_length=6, verbose_name='Kod pocztowy')
     street = models.CharField(max_length=255, verbose_name='Ulica')
     city = models.CharField(max_length=255, verbose_name='Miasto')
     nip = models.PositiveIntegerField(verbose_name='NIP')
 
     def __str__(self):
-        title = str(self.first_name + ' ' + self.second_name)
+        title = str(self.first_name + ' ' + self.last_name)
         return title
+
+    def get_full_address(self):
+        return f'{self.street} {self.city} {self.postal_code}'
+
+    def clean(self):
+        if len(self.nip) != 10:
+            raise ValidationError('Numer NIP musi posiadać 10 znaków')
+
 
 
 class Order(models.Model):
@@ -28,3 +36,5 @@ class Order(models.Model):
     description = models.CharField(max_length=10000)
     begin_date = models.DateField()
     finish_date = models.DateField()
+
+

@@ -1,0 +1,24 @@
+{% extends 'index.html' %}
+{% block content %}
+
+
+<h1>Dodaj zamówienie</h1>
+<br/><br/>
+<form method="POST">
+	{% csrf_token %}
+    {% if form.errors %}
+        <div id="errors">
+            <div class="inner">
+                <p>Popraw poniższe błędy:</p>
+                <ul>
+                    {% for field in form %}
+                        {% if field.errors %}<li>{{ field.label }}: {{ field.errors|striptags }}</li>{% endif %}
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    {% endif %}
+	{{ form.as_p }}
+    <button type="submit" value="Submit" class="btn btn-primary">Zapisz</button>
+
+{% endblock %}

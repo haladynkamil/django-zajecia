@@ -1,0 +1,34 @@
+{% extends 'registration/base.html' %}
+
+{% block page_title %}
+    Panel logowania
+{% endblock %}
+
+{% block form %}
+{% if form.non_field_errors %}
+    <div class="alert alert-danger">
+        {% for error in form.non_field_errors %}
+            {{ error }}
+        {% endfor %}
+    </div>
+{% endif %}
+
+<form class="form-signin form-horizontal" method="post" action="">
+
+    {% csrf_token %}
+    <div class="form-group">
+        <input type="text" class="form-control" id="{{ form.username.id_for_label }}" name="{{ form.username.name }}" placeholder="{{ form.username.label }}" autofocus>
+    </div>
+    <div class="form-group">
+        <input type="password" class="form-control" id="{{ form.password.id_for_label }}" name="{{ form.password.name }}" placeholder="{{ form.password.label }}">
+    </div>
+
+
+
+    <div class="form-group">
+        <button class="btn btn-lg btn-primary btn-block" href="admin/" type="submit">Zaloguj</button>
+	<a class="btn btn-lg btn-primary btn-block" href="{% url 'password_reset' %}">Nie pamiętam hasła</a>
+    </div>
+</form>
+{% endblock %}
+
