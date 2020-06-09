@@ -17,7 +17,7 @@ class Client(models.Model):
         return f'{self.street} {self.city} {self.postal_code}'
 
     def clean(self):
-        if len(self.nip) != 10:
+        if len(str(self.nip)) != 10:
             raise ValidationError('Numer NIP musi posiadać 10 znaków')
 
 
